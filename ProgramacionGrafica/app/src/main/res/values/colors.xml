@@ -1,0 +1,13 @@
+<resources>
+    <color name="black">#121212</color>
+    <color name="white">#FFFFFF</color>
+    <color name="gray">#B0BEC5</color>
+
+    <!-- Colores principales con azul más oscuro -->
+    <color name="primary">#0277BD</color> <!-- Azul cobalto -->
+    <color name="primaryDark">#01579B</color> <!-- Azul profundo -->
+    <color name="secondary">#FF1744</color> <!-- Rojo vibrante -->
+    <color name="secondaryDark">#D50000</color> <!-- Rojo oscuro -->
+    <color name="accent">#76FF03</color> <!-- Verde neón -->
+    <color name="alternative">#FFEA00</color> <!-- Amarillo eléctrico -->
+</resources>

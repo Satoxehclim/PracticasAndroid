@@ -1,0 +1,22 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Tema base para el modo oscuro -->
+    <style name="Base.Theme.ProgramacionGrafica" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primaryDark</item>
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorSecondaryVariant">@color/secondaryDark</item>
+        <item name="colorAccent">@color/accent</item>
+
+        <!-- Fondo y texto -->
+        <item name="android:colorBackground">@color/black</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/gray</item>
+
+        <!-- Botones y controles -->
+        <item name="android:colorButtonNormal">@color/primary</item>
+        <item name="android:colorControlHighlight">@color/accent</item>
+        <item name="android:colorControlActivated">@color/alternative</item>
+    </style>
+
+    <style name="Theme.ProgramacionGrafica" parent="Base.Theme.ProgramacionGrafica" />
+</resources>
