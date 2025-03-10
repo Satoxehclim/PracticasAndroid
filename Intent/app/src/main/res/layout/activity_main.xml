@@ -56,7 +56,7 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="number"
+                android:inputType="numberDecimal|numberSigned"
                 android:imeOptions="actionNext"
                 android:nextFocusForward="@id/Id_EditText_CoeficienteB"/>
 
@@ -77,7 +77,7 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="number"
+                android:inputType="numberDecimal|numberSigned"
                 android:imeOptions="actionNext"
                 android:nextFocusForward="@id/Id_EditText_CoeficienteC"/>
 
@@ -98,7 +98,7 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="number"
+                android:inputType="numberDecimal|numberSigned"
                 android:imeOptions="actionDone"/>
 
         </LinearLayout>
@@ -136,13 +136,13 @@
                 android:text="Divisor" />
 
             <EditText
-                android:id="@+id/EditText_Divisor"
+                android:id="@+id/Id_EditText_Divisor"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="number"
+                android:inputType="numberDecimal|numberSigned"
                 android:imeOptions="actionNext"
-                android:nextFocusForward="@id/EditText_Dividendo"/>
+                android:nextFocusForward="@id/Id_EditText_Dividendo"/>
         </LinearLayout>
 
         <LinearLayout
@@ -157,11 +157,11 @@
                 android:text="Dividendo" />
 
             <EditText
-                android:id="@+id/EditText_Dividendo"
+                android:id="@+id/Id_EditText_Dividendo"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="number"
+                android:inputType="numberDecimal|numberSigned"
                 android:imeOptions="actionDone"/>
         </LinearLayout>
     </LinearLayout>

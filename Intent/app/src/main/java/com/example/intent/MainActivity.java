@@ -42,7 +42,7 @@ public class MainActivity extends Activity{
             public void onClick(View v) {
                 itnEjercicio1 = new Intent(MainActivity.this,Ejercicio1.class);
                 bdlEjercicio1 = new Bundle();
-                if (ValidarEjercicio2()){
+                if (ValidarEjercicio1()){
                     bdlEjercicio1.putDouble("COEFICIENTE A",
                             Double.parseDouble(jetCoeficienteA.getText().toString().trim()));
                     bdlEjercicio1.putDouble("COEFICIENTE B",
@@ -61,8 +61,26 @@ public class MainActivity extends Activity{
          La segunda actividad calcula el cociente y muestra el resultado
          hasta el primer decimal si es posible, en su plantilla,
          acomodado en notación de división larga*/
+        jetDivisor = (EditText) findViewById(R.id.Id_EditText_Divisor);
+        jetDividendo = (EditText) findViewById(R.id.Id_EditText_Dividendo);
+        jbnEjercicio2 = (Button) findViewById(R.id.Id_btn_Ejercicio2);
+        jbnEjercicio2.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                itnEjercicio2 = new Intent(MainActivity.this, Ejercicio2.class);
+                bdlEjercicio2 = new Bundle();
+                if (ValidarEjercicio2()){
+                    bdlEjercicio2.putLong("DIVISOR",
+                            Long.parseLong(jetDivisor.getText().toString()));
+                    bdlEjercicio2.putLong("DIVIDENDO",
+                            Long.parseLong(jetDividendo.getText().toString()));
+                    itnEjercicio2.putExtras(bdlEjercicio2);
+                    startActivity(itnEjercicio2);
+                }
+            }
+        });
     }
-    private boolean ValidarEjercicio2(){
+    private boolean ValidarEjercicio1(){
         if(!validarNumero(jetCoeficienteA, "Coeficiente A")){
             return false;
         }
@@ -70,6 +88,16 @@ public class MainActivity extends Activity{
             return false;
         }
         if(!validarNumero(jetCoeficienteC, "Coeficiente C")){
+            return false;
+        }
+        return true;
+    }
+
+    private boolean ValidarEjercicio2(){
+        if (!validarNumero(jetDivisor,"Divisor")){
+            return false;
+        }
+        if (!validarNumero(jetDividendo,"Dividendo")){
             return false;
         }
         return true;
