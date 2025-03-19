@@ -35,7 +35,7 @@ public class Ejercicio2 extends AppCompatActivity {
         tvDivisior.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener()  {
             @Override
             public void onGlobalLayout(){
-                int width = tvDivisior.getWidth();
+                int width = tvDivisior.getWidth()+8;
 
                 ViewGroup.LayoutParams params = spacioCociente.getLayoutParams();
                 ViewGroup.LayoutParams params2 = spacioCociente2.getLayoutParams();
@@ -62,16 +62,30 @@ public class Ejercicio2 extends AppCompatActivity {
 
     private void DivisionLarga(long dividendo, long divisor) {
         StringBuilder residuoStr = new StringBuilder();
+        StringBuilder cocienteStr = new StringBuilder();
         double cociente = 0;
         long residuo = 0;
         long digitoActual;
         long cocienteParcial;
         long producto;
         long nuevoResiduo;
-        String dividendoStr = String.valueOf(dividendo)+"0";
-
-        for (int i = 0; i < dividendoStr.length(); i++) {
-            digitoActual = Long.parseLong(dividendoStr.substring(i, i + 1));
+        String residuor;
+        String dividendoStr = String.valueOf(dividendo)+".0";
+        int cont=dividendoStr.length(),aux=0;
+        boolean flagpoint=false;
+        if (divisor==0){
+            tvResiduo.setText("Error: No se puede dividir entre cero.");
+            tvCociente.setText("");
+            return;
+        }
+        for (int i = 0; i < cont-1; i++) {
+            if (dividendoStr.charAt(0)=='.'){
+                dividendoStr = dividendoStr.substring(1);
+                cocienteStr.append(".");
+                flagpoint=true;
+            }
+            digitoActual = Character.getNumericValue(dividendoStr.charAt(0));
+            dividendoStr = dividendoStr.substring(1);
             residuo = residuo * 10 + digitoActual;
 
             cocienteParcial = residuo / divisor;
@@ -79,19 +93,34 @@ public class Ejercicio2 extends AppCompatActivity {
 
             producto = cocienteParcial * divisor;
             nuevoResiduo = residuo - producto;
-            if (cocienteParcial==0){
-                residuoStr.append(residuo);
-            }else{
-                residuoStr.append("\n");
-                for (int j=0; j<i; j++){
+
+            residuor = String.valueOf(residuo);
+            if (cocienteParcial!=0){
+                for (int j=0; j<=i-residuor.length(); j++){
                     residuoStr.append(" ");
                 }
-                residuoStr.append(residuo);
+                cocienteStr.append(cocienteParcial);
+                if (flagpoint){
+                    double auxresiduo = residuo/10.0;
+                    residuoStr.append(auxresiduo);
+                }else{
+                    residuoStr.append(residuo);
+                }
+
+                residuoStr.append("\n");
             }
             residuo = nuevoResiduo;
+
         }
+        dividendoStr = String.valueOf(dividendo)+".0";
+        residuor = String.valueOf(residuo);
+        for (int j=0; j<(dividendoStr.length()-residuor.length())-1; j++){
+            residuoStr.append(" ");
+        }
+        double res = residuo/10.0;
+        residuoStr.append(res);
         tvResiduo.append(residuoStr);
-        tvCociente.append(cociente+"");
+        tvCociente.append(cocienteStr);
     }
 
 }
