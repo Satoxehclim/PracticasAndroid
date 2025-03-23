@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">NumeroMaravilloso</string>
+    <string name="Titulo_Main">Numero maravilloso</string>
+    <string name="ingrese_un_numero_editText">Ingrese un numero</string>
+    <string name="Desarrollo_Main">Desarrollo:</string>
+    <string name="btn_analizar">Analizar</string>
+</resources>
