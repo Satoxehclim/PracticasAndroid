@@ -2,6 +2,7 @@ package com.example.intent;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.text.Html;
 import android.view.View;
 import android.view.View.*;
 import android.content.Intent;
@@ -11,12 +12,15 @@ public class MainActivity extends Activity{
     Button jbnEjemplo,jbnEjercicio1,jbnEjercicio2;
     Bundle bdlEjemplo,bdlEjercicio1,bdlEjercicio2;
     Intent itnEjemplo,itnEjercicio1,itnEjercicio2;
+    TextView tvTituloEjercicio2;
     public void onCreate(Bundle b) {
         super.onCreate(b);
         setContentView(R.layout.activity_main);
         //Ejemplo de intents
         jetEjemplo = (EditText) findViewById(R.id.xet);
         jbnEjemplo = (Button) findViewById(R.id.xbn);
+        tvTituloEjercicio2 = (TextView) findViewById(R.id.Id_tv_Ejercicio1Titulo);
+        tvTituloEjercicio2.setText(Html.fromHtml("Ejercicio 1: Resolver ecuación de segundo grado del tipo ax<sup><small>2</small></sup>+bx+c=0"));
         jbnEjemplo.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
