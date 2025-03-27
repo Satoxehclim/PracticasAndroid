@@ -16,7 +16,25 @@
         <item name="android:colorButtonNormal">@color/primary</item>
         <item name="android:colorControlHighlight">@color/accent</item>
         <item name="android:colorControlActivated">@color/alternative</item>
+
+        <!-- Personalización del Spinner (texto negro) -->
+        <item name="android:spinnerStyle">@style/Widget.ProgramacionGrafica.Spinner</item>
+        <item name="android:spinnerItemStyle">@style/Widget.ProgramacionGrafica.Spinner.Item</item>
+        <item name="android:spinnerDropDownItemStyle">@style/Widget.ProgramacionGrafica.Spinner.DropDownItem</item>
     </style>
 
     <style name="Theme.ProgramacionGrafica" parent="Base.Theme.ProgramacionGrafica" />
+
+    <!-- Estilos específicos para el Spinner -->
+    <style name="Widget.ProgramacionGrafica.Spinner" parent="Widget.AppCompat.Spinner">
+        <item name="android:backgroundTint">@color/primary</item> <!-- Fondo primary -->
+    </style>
+
+    <style name="Widget.ProgramacionGrafica.Spinner.Item" parent="Widget.AppCompat.TextView.SpinnerItem">
+        <item name="android:textColor">@android:color/black</item> <!-- Texto negro -->
+    </style>
+
+    <style name="Widget.ProgramacionGrafica.Spinner.DropDownItem" parent="Widget.AppCompat.DropDownItem.Spinner">
+        <item name="android:textColor">@android:color/black</item> <!-- Texto negro en dropdown -->
+    </style>
 </resources>
