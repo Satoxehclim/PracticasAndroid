@@ -8,27 +8,20 @@
     tools:context=".MainActivity">
 
     <!-- Título -->
-    <TextView
-        android:id="@+id/titleText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Control de Motor"
-        android:textColor="#2196F3"
-        android:textSize="24sp"
-        android:textStyle="bold" />
 
     <!-- Botón Conectar -->
+
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/editTextDireccionIP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="Direccion IP"
         android:inputType="text"
+        android:paddingTop="15dp"
         android:textColor="#2196F3"
         android:textSize="24sp"
-        android:textStyle="bold"
-        android:hint="Direccion IP" />
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnConectar"
@@ -40,6 +33,16 @@
         android:textColor="#FFFFFF" />
 
     <!-- Contenedor de Botones de Control -->
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Control de Motor"
+        android:textColor="#2196F3"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
     <LinearLayout
         android:id="@+id/controlLayout"
         android:layout_width="match_parent"
@@ -105,5 +108,85 @@
             android:textColor="#2196F3"
             android:textSize="18sp" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/titleText2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Control de LEDS"
+        android:textColor="#2196F3"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnEncenderLED1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#4CAF50"
+            android:enabled="false"
+            android:text="ENCENDER LED 1"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btnApagarLED1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#F44336"
+            android:enabled="false"
+            android:text="APAGAR LED 1"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnEncenderLED2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#4CAF50"
+            android:enabled="false"
+            android:text="ENCENDER LED 2"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btnApagarLED2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#F44336"
+            android:enabled="false"
+            android:text="APAGAR LED 2"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/estadoLED1Text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Estado LED1: DESCONECTADO"
+        android:textColor="#2196F3"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/estadoLED2Text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Estado LED2: DESCONECTADO"
+        android:textColor="#2196F3"
+        android:textSize="18sp" />
 
 </LinearLayout>

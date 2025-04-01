@@ -17,9 +17,9 @@ public class MainActivity extends AppCompatActivity {
 
     private WebSocket webSocket;
     private OkHttpClient client;
-    private TextView estadoMotorText, frecuenciaText, rpmText;
-    private Button btnConectar, btnEncender, btnApagar;
-    private EditText ipEditText;
+    private TextView estadoMotorText, frecuenciaText, rpmText,estadoLED1Text,estadoLED2Text;
+    private Button btnConectar, btnEncender, btnApagar,btnEncenderLED1,btnEncenderLED2,btnApagarLED1,btnApagarLED2;
+    private EditText etDireccionIP;
     private boolean isConnected = false;
 
     @Override
@@ -35,17 +35,27 @@ public class MainActivity extends AppCompatActivity {
 
         // Inicializar vistas
         estadoMotorText = findViewById(R.id.estadoMotorText);
+        estadoLED1Text = findViewById(R.id.estadoLED1Text);
+        estadoLED2Text = findViewById(R.id.estadoLED2Text);
         frecuenciaText = findViewById(R.id.frecuenciaText);
         rpmText = findViewById(R.id.rpmText);
         btnConectar = findViewById(R.id.btnConectar);
         btnEncender = findViewById(R.id.btnEncender);
         btnApagar = findViewById(R.id.btnApagar);
-        ipEditText = findViewById(R.id.editTextText);
+        etDireccionIP = findViewById(R.id.editTextDireccionIP);
+        btnEncenderLED1 = findViewById(R.id.btnEncenderLED1);
+        btnEncenderLED2 = findViewById(R.id.btnEncenderLED2);
+        btnApagarLED1 = findViewById(R.id.btnApagarLED1);
+        btnApagarLED2 = findViewById(R.id.btnApagarLED2);
 
         // Configurar listeners
         btnConectar.setOnClickListener(v -> toggleConnection());
         btnEncender.setOnClickListener(v -> sendMotorCommand("Activado"));
         btnApagar.setOnClickListener(v -> sendMotorCommand("Desactivado"));
+        btnEncenderLED1.setOnClickListener(v -> sendLED1Command("LED1ON"));
+        btnApagarLED1.setOnClickListener(v -> sendLED1Command("LED1OFF"));
+        btnEncenderLED2.setOnClickListener(v -> sendLED2Command("LED2ON"));
+        btnApagarLED2.setOnClickListener(v -> sendLED2Command("LED2OFF"));
 
         updateUI();
     }
@@ -54,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         if (isConnected) {
             disconnectWebSocket();
         } else {
-            String ip = ipEditText.getText().toString().trim();
+            String ip = etDireccionIP.getText().toString().trim();
             if (ip.isEmpty()) {
                 Toast.makeText(this, "Ingresa una dirección IP", Toast.LENGTH_SHORT).show();
                 return;
@@ -75,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
                 runOnUiThread(() -> {
                     isConnected = true;
                     updateUI();
-                    Toast.makeText(MainActivity.this, "Conectado al ESP8266", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Conectado al Wemos D1", Toast.LENGTH_SHORT).show();
                 });
             }
 
@@ -120,8 +130,21 @@ public class MainActivity extends AppCompatActivity {
     private void sendMotorCommand(String command) {
         if (webSocket != null && isConnected) {
             webSocket.send(command);
-            estadoMotorText.setText("Estado: " +
-                    (command.equals("Activado") ? "MOTOR ACTIVADO" : "MOTOR APAGADO"));
+            estadoMotorText.setText("Estado: " + (command.equals("Activado") ? "MOTOR ACTIVADO" : "MOTOR APAGADO"));
+        }
+    }
+
+    private void sendLED1Command(String command){
+        if(webSocket != null && isConnected){
+            webSocket.send(command);
+            estadoLED1Text.setText("Estado LED 1: " + (command.equals("LED1ON") ? "ACTIVADO" : "APAGADO"));
+        }
+    }
+
+    private void sendLED2Command(String command){
+        if(webSocket != null && isConnected){
+            webSocket.send(command);
+            estadoLED2Text.setText("Estado LED 2: " + (command.equals("LED2ON") ? "ACTIVADO" : "APAGADO"));
         }
     }
 
@@ -137,8 +160,14 @@ public class MainActivity extends AppCompatActivity {
         btnConectar.setText(isConnected ? "Desconectar" : "Conectar");
         btnEncender.setEnabled(isConnected);
         btnApagar.setEnabled(isConnected);
+        btnEncenderLED1.setEnabled(isConnected);
+        btnEncenderLED2.setEnabled(isConnected);
+        btnApagarLED1.setEnabled(isConnected);
+        btnApagarLED2.setEnabled(isConnected);
         estadoMotorText.setText(isConnected ? "Estado: CONECTADO" : "Estado: DESCONECTADO");
-        ipEditText.setEnabled(!isConnected);
+        estadoLED1Text.setText(isConnected ? "Estado LED1: CONECTADO" : "Estado LED1: DESCONECTADO");
+        estadoLED2Text.setText(isConnected ? "Estado LED2: CONECTADO" : "Estado LED2: DESCONECTADO");
+        etDireccionIP.setEnabled(!isConnected);
     }
 
     @Override
