@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:padding="16dp"
+    android:gravity="center">
+
+    <!-- Columna para SeekBars VERTICALES (Izquierda) -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Servo Izq (V)"/>
+
+        <SeekBar
+            android:id="@+id/seekBar_servo_left_vertical"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:max="180"
+            android:progress="90"
+            android:rotation="270" />
+
+        <TextView
+            android:id="@+id/tv_servo_left_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Servo Izquierdo: 90°"/>
+    </LinearLayout>
+
+    <!-- Columna para SeekBars HORIZONTALES (Derecha) -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginLeft="32dp">
+
+        <TextView
+            android:id="@+id/tv_servo_left_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Servo Izquierdo: 90°"/>
+
+        <SeekBar
+            android:id="@+id/seekBar_servo_left_horizontal"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:max="180"
+            android:progress="90"/>
+
+        <TextView
+            android:id="@+id/tv_servo_right_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Servo Derecho: 90°"
+            android:layout_marginTop="16dp"/>
+
+        <SeekBar
+            android:id="@+id/seekBar_servo_right_horizontal"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:max="180"
+            android:progress="90"/>
+    </LinearLayout>
+
+    <!-- Columna para SeekBars VERTICALES (Derecha) -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginLeft="32dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Servo Der (V)"/>
+
+        <SeekBar
+            android:id="@+id/seekBar_servo_right_vertical"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:max="180"
+            android:progress="90"
+            android:rotation="270" />
+
+        <TextView
+            android:id="@+id/tv_servo_right_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Servo Derecho: 90°"/>
+    </LinearLayout>
+
+</LinearLayout>

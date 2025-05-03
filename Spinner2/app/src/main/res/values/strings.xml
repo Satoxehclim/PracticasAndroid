@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Spinner2</string>
+    <string name="spinner_title">Digitar el Spinner</string>
+</resources>

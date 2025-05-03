@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Android Base Datos</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="snom">Nombre:</string>
+    <string name="sid">ID:</string>
+    <string name="ins">Alta</string>
+    <string name="cons">Lista</string>
+    <string name="bajs">Eliminar</string>
+    <string name="camb">Actualizar</string>
+</resources>
